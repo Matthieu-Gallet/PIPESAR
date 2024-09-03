@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="fr" >
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils.SlidingWindowTransformer &mdash; Stage Wet Snow Benchmarking 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-
-  
+  <title>utils.SlidingWindowTransformer &mdash; Documentation Stage Wet Snow Benchmarking 1.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/documentation_options.js?v=db78e746"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=bf059b8c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Recherche" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -27,15 +24,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../../index.html" class="icon icon-home">
-            Stage Wet Snow Benchmarking
+            <a href="../../index.html" class="icon icon-home"> Stage Wet Snow Benchmarking
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,9 +57,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">utils.SlidingWindowTransformer</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Code du module</a> &raquo;</li>
+      <li>utils.SlidingWindowTransformer</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -75,7 +68,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for utils.SlidingWindowTransformer</h1><div class="highlight"><pre>
+  <h1>Code source de utils.SlidingWindowTransformer</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">SlidingWindowTransformer</span>
 <span class="sd">=================</span>
@@ -91,7 +84,9 @@
 <span class="kn">from</span> <span class="nn">skimage.util</span> <span class="kn">import</span> <span class="n">view_as_windows</span>
 <span class="kn">import</span> <span class="nn">joblib</span>  
 
-<div class="viewcode-block" id="SlidingWindowTransformer"><a class="viewcode-back" href="../../utils.html#utils.SlidingWindowTransformer.SlidingWindowTransformer">[docs]</a><span class="k">class</span> <span class="nc">SlidingWindowTransformer</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+<div class="viewcode-block" id="SlidingWindowTransformer">
+<a class="viewcode-back" href="../../utils.html#utils.SlidingWindowTransformer.SlidingWindowTransformer">[docs]</a>
+<span class="k">class</span> <span class="nc">SlidingWindowTransformer</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">estimator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -106,7 +101,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">use_predict_proba</span> <span class="o">=</span> <span class="n">use_predict_proba</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">custom_func</span> <span class="o">=</span> <span class="n">custom_func</span>
 
-<div class="viewcode-block" id="SlidingWindowTransformer.transform_block"><a class="viewcode-back" href="../../utils.html#utils.SlidingWindowTransformer.SlidingWindowTransformer.transform_block">[docs]</a>    <span class="k">def</span> <span class="nf">transform_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
+<div class="viewcode-block" id="SlidingWindowTransformer.transform_block">
+<a class="viewcode-back" href="../../utils.html#utils.SlidingWindowTransformer.SlidingWindowTransformer.transform_block">[docs]</a>
+    <span class="k">def</span> <span class="nf">transform_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Transform a single block of data by applying the sliding window approach.</span>
 
@@ -160,7 +157,10 @@
         <span class="n">predictions</span> <span class="o">=</span> <span class="n">predictions</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">windows_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">windows_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">predictions</span></div>
 
-<div class="viewcode-block" id="SlidingWindowTransformer.fit"><a class="viewcode-back" href="../../utils.html#utils.SlidingWindowTransformer.SlidingWindowTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SlidingWindowTransformer.fit">
+<a class="viewcode-back" href="../../utils.html#utils.SlidingWindowTransformer.SlidingWindowTransformer.fit">[docs]</a>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fit the transformer to the data. No fitting process is required.</span>
 
@@ -178,7 +178,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="SlidingWindowTransformer.calculate_optimal_chunks"><a class="viewcode-back" href="../../utils.html#utils.SlidingWindowTransformer.SlidingWindowTransformer.calculate_optimal_chunks">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_optimal_chunks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SlidingWindowTransformer.calculate_optimal_chunks">
+<a class="viewcode-back" href="../../utils.html#utils.SlidingWindowTransformer.SlidingWindowTransformer.calculate_optimal_chunks">[docs]</a>
+    <span class="k">def</span> <span class="nf">calculate_optimal_chunks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate optimal chunk sizes for Dask processing based on available memory.</span>
 
@@ -209,7 +212,10 @@
 
         <span class="k">return</span> <span class="n">chunks</span></div>
 
-<div class="viewcode-block" id="SlidingWindowTransformer.transform"><a class="viewcode-back" href="../../utils.html#utils.SlidingWindowTransformer.SlidingWindowTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SlidingWindowTransformer.transform">
+<a class="viewcode-back" href="../../utils.html#utils.SlidingWindowTransformer.SlidingWindowTransformer.transform">[docs]</a>
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Transform the input data using the sliding window approach.</span>
 
@@ -232,7 +238,9 @@
         <span class="p">)</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="n">processed_blocks</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">result</span></div></div>
+        <span class="k">return</span> <span class="n">result</span></div>
+</div>
+
 </pre></div>
 
            </div>
@@ -242,12 +250,12 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, cortesmc.</p>
+    <p>&#169; Droits d'auteur 2024, cortesmc.</p>
   </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

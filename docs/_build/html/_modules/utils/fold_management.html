@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="fr" >
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils.fold_management &mdash; Stage Wet Snow Benchmarking 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-
-  
+  <title>utils.fold_management &mdash; Documentation Stage Wet Snow Benchmarking 1.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/documentation_options.js?v=db78e746"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=bf059b8c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Recherche" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -27,15 +24,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../../index.html" class="icon icon-home">
-            Stage Wet Snow Benchmarking
+            <a href="../../index.html" class="icon icon-home"> Stage Wet Snow Benchmarking
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,9 +57,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">utils.fold_management</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Code du module</a> &raquo;</li>
+      <li>utils.fold_management</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -75,7 +68,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for utils.fold_management</h1><div class="highlight"><pre>
+  <h1>Code source de utils.fold_management</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
 <span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">RandomOverSampler</span><span class="p">,</span> <span class="n">SMOTE</span>
@@ -83,7 +76,9 @@
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
-<div class="viewcode-block" id="simple_split"><a class="viewcode-back" href="../../utils.html#utils.fold_management.simple_split">[docs]</a><span class="k">def</span> <span class="nf">simple_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="simple_split">
+<a class="viewcode-back" href="../../utils.html#utils.fold_management.simple_split">[docs]</a>
+<span class="k">def</span> <span class="nf">simple_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Perform a simple split of the data into training and testing sets.</span>
 
@@ -113,7 +108,10 @@
 
     <span class="k">return</span> <span class="p">[(</span><span class="n">train_indices</span><span class="p">,</span> <span class="n">test_indices</span><span class="p">)]</span></div>
 
-<div class="viewcode-block" id="KFold_method"><a class="viewcode-back" href="../../utils.html#utils.fold_management.KFold_method">[docs]</a><span class="k">def</span> <span class="nf">KFold_method</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="KFold_method">
+<a class="viewcode-back" href="../../utils.html#utils.fold_management.KFold_method">[docs]</a>
+<span class="k">def</span> <span class="nf">KFold_method</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Perform K-Fold cross-validation on the data.</span>
 <span class="sd">    </span>
@@ -139,7 +137,10 @@
     
     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="fold_massive_method"><a class="viewcode-back" href="../../utils.html#utils.fold_management.fold_massive_method">[docs]</a><span class="k">def</span> <span class="nf">fold_massive_method</span><span class="p">(</span><span class="n">dict_massives</span><span class="p">):</span>
+
+<div class="viewcode-block" id="fold_massive_method">
+<a class="viewcode-back" href="../../utils.html#utils.fold_management.fold_massive_method">[docs]</a>
+<span class="k">def</span> <span class="nf">fold_massive_method</span><span class="p">(</span><span class="n">dict_massives</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate train and test indices for each massive in a dictionary.</span>
 
@@ -166,7 +167,10 @@
     
     <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="combination_method"><a class="viewcode-back" href="../../utils.html#utils.fold_management.combination_method">[docs]</a><span class="k">def</span> <span class="nf">combination_method</span><span class="p">(</span><span class="n">dict_massives</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">proximity_value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="combination_method">
+<a class="viewcode-back" href="../../utils.html#utils.fold_management.combination_method">[docs]</a>
+<span class="k">def</span> <span class="nf">combination_method</span><span class="p">(</span><span class="n">dict_massives</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">proximity_value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate prioritized combinations of massives based on a given dictionary.</span>
 
@@ -246,7 +250,10 @@
 
     <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="FoldManagement"><a class="viewcode-back" href="../../utils.html#utils.fold_management.FoldManagement">[docs]</a><span class="k">class</span> <span class="nc">FoldManagement</span><span class="p">:</span> 
+
+<div class="viewcode-block" id="FoldManagement">
+<a class="viewcode-back" href="../../utils.html#utils.fold_management.FoldManagement">[docs]</a>
+<span class="k">class</span> <span class="nc">FoldManagement</span><span class="p">:</span> 
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;kFold&quot;</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">train_aprox_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
@@ -256,7 +263,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">massives_count</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="FoldManagement.split"><a class="viewcode-back" href="../../utils.html#utils.fold_management.FoldManagement.split">[docs]</a>    <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="viewcode-block" id="FoldManagement.split">
+<a class="viewcode-back" href="../../utils.html#utils.fold_management.FoldManagement.split">[docs]</a>
+    <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Split the data into train and test sets based on the specified folding method.</span>
 
@@ -296,7 +305,9 @@
             <span class="k">case</span> <span class="s2">&quot;simpleSplit&quot;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">simple_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">train_aprox_size</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shuffle</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span></div>
+</div>
+
 </pre></div>
 
            </div>
@@ -306,12 +317,12 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, cortesmc.</p>
+    <p>&#169; Droits d'auteur 2024, cortesmc.</p>
   </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

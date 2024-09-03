@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="fr" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Running an Experiment &mdash; Stage Wet Snow Benchmarking 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-
-  
+  <title>Running an Experiment &mdash; Documentation Stage Wet Snow Benchmarking 1.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/documentation_options.js?v=db78e746"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=bf059b8c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
     <link rel="next" title="Parameters files" href="parameter_files/index.html" />
     <link rel="prev" title="Usage" href="index.html" /> 
 </head>
@@ -30,15 +27,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../../index.html" class="icon icon-home">
-            Stage Wet Snow Benchmarking
+            <a href="../../index.html" class="icon icon-home"> Stage Wet Snow Benchmarking
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -77,11 +70,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Usage</a></li>
-      <li class="breadcrumb-item active">Running an Experiment</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Usage</a> &raquo;</li>
+      <li>Running an Experiment</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/source/usage_files/run_exp.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/source/usage_files/run_exp.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
   </ul>
   <hr/>
@@ -90,7 +83,7 @@
            <div itemprop="articleBody">
              
   <section id="running-an-experiment">
-<h1>Running an Experiment<a class="headerlink" href="#running-an-experiment" title="Permalink to this heading"></a></h1>
+<h1>Running an Experiment<a class="headerlink" href="#running-an-experiment" title="Lien vers cette rubrique"></a></h1>
 <p>First you need the framework to be totally installed, for that you can see on <a class="reference internal" href="../installation_file/index.html#installation"><span class="std std-ref">Installation</span></a>.
 Once the framework and Qanat are initialized, everything is ready to start working.</p>
 <ol class="arabic">
@@ -106,7 +99,7 @@ Once the framework and Qanat are initialized, everything is ready to start worki
 <p>For examples of templates, please refer to the <a class="reference internal" href="templates.html#templates"><span class="std std-ref">Examples of Configuration Templates</span></a>.</p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<p class="admonition-title">Avertissement</p>
 <p>Currently, the pipeline supports the creation of groups with different <em>seeds</em> and <em>ML models</em> only.
 When creating different groups, be mindful that the results may not be directly comparable across these groups.</p>
 </div>
@@ -128,7 +121,7 @@ When creating different groups, be mindful that the results may not be directly 
 </li>
 </ol>
 <section id="deploying-an-experiment-inside-a-container">
-<h2>Deploying an Experiment Inside a Container<a class="headerlink" href="#deploying-an-experiment-inside-a-container" title="Permalink to this heading"></a></h2>
+<h2>Deploying an Experiment Inside a Container<a class="headerlink" href="#deploying-an-experiment-inside-a-container" title="Lien vers cette rubrique"></a></h2>
 <p>To deploy the experiment inside a container, use the <cite>–container</cite> option:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qanat</span> <span class="n">experiment</span> <span class="n">run</span> <span class="o">&lt;</span><span class="n">experiment_name</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">POSITIONAL</span> <span class="n">ARGUMENTS</span><span class="p">]</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="o">--</span><span class="n">container</span> <span class="o">&lt;</span><span class="n">container_path</span><span class="o">.</span><span class="n">sif</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">--</span><span class="n">gpu</span> <span class="kc">True</span><span class="o">|</span><span class="kc">False</span><span class="p">]</span>
 </pre></div>
@@ -139,7 +132,7 @@ When creating different groups, be mindful that the results may not be directly 
 </div>
 </section>
 <section id="deploying-an-experiment-through-a-job-system">
-<h2>Deploying an Experiment Through a Job System<a class="headerlink" href="#deploying-an-experiment-through-a-job-system" title="Permalink to this heading"></a></h2>
+<h2>Deploying an Experiment Through a Job System<a class="headerlink" href="#deploying-an-experiment-through-a-job-system" title="Lien vers cette rubrique"></a></h2>
 <p>To deploy the experiment through a job system, use the <cite>–runner</cite> option:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qanat</span> <span class="n">experiment</span> <span class="n">run</span> <span class="o">&lt;</span><span class="n">experiment_name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">runner</span> <span class="n">local</span><span class="o">|</span><span class="n">htcondor</span><span class="o">|</span><span class="n">slurm</span> <span class="p">[</span><span class="n">POSITIONAL</span> <span class="n">ARGUMENTS</span><span class="p">]</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">submit_template</span> <span class="n">yourtemplate</span><span class="p">]</span>
 </pre></div>
@@ -151,7 +144,7 @@ When creating different groups, be mindful that the results may not be directly 
 </section>
 </section>
 <section id="running-an-action">
-<h1>Running an action<a class="headerlink" href="#running-an-action" title="Permalink to this heading"></a></h1>
+<h1>Running an action<a class="headerlink" href="#running-an-action" title="Lien vers cette rubrique"></a></h1>
 <p>To use the actions, you need to have run the experiment at least once. Qanat generates new files named run_N°, where N° is the index of the run. To apply an action to a specific run, use the run index as follows:
 For the action get_results, which consolidates all the results from multiple groups into a single file named final_results:</p>
 <blockquote>
@@ -165,20 +158,20 @@ For the action get_results, which consolidates all the results from multiple gro
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="parameter_files/index.html" class="btn btn-neutral float-right" title="Parameters files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="index.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="parameter_files/index.html" class="btn btn-neutral float-right" title="Parameters files" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, cortesmc.</p>
+    <p>&#169; Droits d'auteur 2024, cortesmc.</p>
   </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="fr" >
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils.geo_tools &mdash; Stage Wet Snow Benchmarking 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-
-  
+  <title>utils.geo_tools &mdash; Documentation Stage Wet Snow Benchmarking 1.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/documentation_options.js?v=db78e746"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=bf059b8c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Recherche" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -27,15 +24,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../../index.html" class="icon icon-home">
-            Stage Wet Snow Benchmarking
+            <a href="../../index.html" class="icon icon-home"> Stage Wet Snow Benchmarking
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,9 +57,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">utils.geo_tools</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Code du module</a> &raquo;</li>
+      <li>utils.geo_tools</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -75,13 +68,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for utils.geo_tools</h1><div class="highlight"><pre>
+  <h1>Code source de utils.geo_tools</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">osgeo</span> <span class="kn">import</span> <span class="n">gdal</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 
-<div class="viewcode-block" id="load_data"><a class="viewcode-back" href="../../utils.html#utils.geo_tools.load_data">[docs]</a><span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">gdal_driver</span><span class="o">=</span><span class="s2">&quot;GTiff&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="load_data">
+<a class="viewcode-back" href="../../utils.html#utils.geo_tools.load_data">[docs]</a>
+<span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">gdal_driver</span><span class="o">=</span><span class="s2">&quot;GTiff&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a GDAL compatable file into a numpy array and associated geodata.</span>
 <span class="sd">    The rray is provided so you can run with your processing - the geodata consists of the geotransform and gdal dataset object</span>
@@ -131,7 +126,10 @@
     <span class="k">return</span> <span class="n">image_array</span><span class="p">,</span> <span class="p">(</span><span class="n">geotransform</span><span class="p">,</span> <span class="n">projection</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="array2raster"><a class="viewcode-back" href="../../utils.html#utils.geo_tools.array2raster">[docs]</a><span class="k">def</span> <span class="nf">array2raster</span><span class="p">(</span><span class="n">data_array</span><span class="p">,</span> <span class="n">geodata</span><span class="p">,</span> <span class="n">file_out</span><span class="p">,</span> <span class="n">gdal_driver</span><span class="o">=</span><span class="s2">&quot;GTiff&quot;</span><span class="p">):</span>
+
+<div class="viewcode-block" id="array2raster">
+<a class="viewcode-back" href="../../utils.html#utils.geo_tools.array2raster">[docs]</a>
+<span class="k">def</span> <span class="nf">array2raster</span><span class="p">(</span><span class="n">data_array</span><span class="p">,</span> <span class="n">geodata</span><span class="p">,</span> <span class="n">file_out</span><span class="p">,</span> <span class="n">gdal_driver</span><span class="o">=</span><span class="s2">&quot;GTiff&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">     Converts a numpy array to a specific geospatial output</span>
 <span class="sd">     If you provide the geodata of the original input dataset, then the output array will match this exactly.</span>
@@ -187,7 +185,10 @@
     <span class="k">return</span> <span class="kc">None</span></div>
 
 
-<div class="viewcode-block" id="calculate_E_distribution"><a class="viewcode-back" href="../../utils.html#utils.geo_tools.calculate_E_distribution">[docs]</a><span class="k">def</span> <span class="nf">calculate_E_distribution</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">dem</span><span class="p">,</span> <span class="n">alti_min</span><span class="p">,</span> <span class="n">alti_max</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+
+<div class="viewcode-block" id="calculate_E_distribution">
+<a class="viewcode-back" href="../../utils.html#utils.geo_tools.calculate_E_distribution">[docs]</a>
+<span class="k">def</span> <span class="nf">calculate_E_distribution</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">dem</span><span class="p">,</span> <span class="n">alti_min</span><span class="p">,</span> <span class="n">alti_max</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the distribution of the prediction map for a given elevation range</span>
 
 <span class="sd">    Parameters</span>
@@ -233,7 +234,10 @@
     <span class="k">return</span> <span class="n">alti</span></div>
 
 
-<div class="viewcode-block" id="calculate_OE_distribution"><a class="viewcode-back" href="../../utils.html#utils.geo_tools.calculate_OE_distribution">[docs]</a><span class="k">def</span> <span class="nf">calculate_OE_distribution</span><span class="p">(</span>
+
+<div class="viewcode-block" id="calculate_OE_distribution">
+<a class="viewcode-back" href="../../utils.html#utils.geo_tools.calculate_OE_distribution">[docs]</a>
+<span class="k">def</span> <span class="nf">calculate_OE_distribution</span><span class="p">(</span>
     <span class="n">prediction</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">dem</span><span class="p">,</span> <span class="n">orientation</span><span class="p">,</span> <span class="n">alti_min</span><span class="p">,</span> <span class="n">alti_max</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">cond_pente</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the distribution of the prediction map for a given orientation range</span>
@@ -290,7 +294,10 @@
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">alti_theta</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="calculate_SOE_distribution"><a class="viewcode-back" href="../../utils.html#utils.geo_tools.calculate_SOE_distribution">[docs]</a><span class="k">def</span> <span class="nf">calculate_SOE_distribution</span><span class="p">(</span>
+
+<div class="viewcode-block" id="calculate_SOE_distribution">
+<a class="viewcode-back" href="../../utils.html#utils.geo_tools.calculate_SOE_distribution">[docs]</a>
+<span class="k">def</span> <span class="nf">calculate_SOE_distribution</span><span class="p">(</span>
     <span class="n">prediction</span><span class="p">,</span> <span class="n">gradient</span><span class="p">,</span> <span class="n">dem</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">orientation</span><span class="p">,</span> <span class="n">pente</span><span class="p">,</span> <span class="n">alti_min</span><span class="p">,</span> <span class="n">alti_max</span><span class="p">,</span> <span class="n">step</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the distribution of the prediction map for a given orientation range,</span>
@@ -374,6 +381,7 @@
 
     <span class="n">alpeor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">alpeor</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">alpeor</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></div>
+
 </pre></div>
 
            </div>
@@ -383,12 +391,12 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, cortesmc.</p>
+    <p>&#169; Droits d'auteur 2024, cortesmc.</p>
   </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>
